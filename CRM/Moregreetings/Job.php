@@ -94,6 +94,7 @@ class CRM_Moregreetings_Job {
    * This doesn't redirect to the runner
    */
   public static function launchCron() {
+    set_time_limit(1800);
     $queue = self::prepareQueue('moregreetings_cron');
     $runner = new CRM_Queue_Runner(array(
       'title'     => ts("Applying Moregreetings Templates by Cron Job", array('domain' => 'de.systopia.moregreetings')),
